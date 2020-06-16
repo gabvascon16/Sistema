@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Detalhe do Filme/Categoria</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>DETALHE DO FILME/CATEGORIA SELECIONADO</h1>
+
+            <table>
+                <tbody>                   
+
+                    <td> <h:outputLabel value="FILME: "/> </td>
+                    <td> 
+                        <h:selectOneMenu id="cboFilme"
+                                         value="#{filmecategoriaController.filmeCategoria.filme.filme_id}"
+                                         style="width: 250px" disabled="true">
+
+                            <f:selectItem itemLabel="Selecione um filme..."
+                                          itemValue="-1"/>
+
+                            <f:selectItems value="#{filmeController.filmes}"
+                                           var="filme"
+                                           itemLabel="#{filme.titulo}"
+                                           itemValue="#{filme.filme_id}"/>
+
+                        </h:selectOneMenu>
+
+                    </td>
+
+                    <td> <h:outputLabel value="CATEGORIA: "/> </td>                 
+
+                    <td>  
+                        <h:selectOneMenu id="cboCategoria"
+                                         value="#{filmecategoriaController.filmeCategoria.categoria.categoria_id}"
+                                         style="width: 250px" disabled="true">
+
+                            <f:selectItem itemLabel="Selecione um categoria..."
+                                          itemValue="-1"/>
+
+                            <f:selectItems value="#{categoriaController.categorias}"
+                                           var="categoria"
+                                           itemLabel="#{categoria.nome}"
+                                           itemValue="#{categoria.categoria_id}"/>
+
+                        </h:selectOneMenu>
+
+                    </td>
+
+
+                </tbody>
+            </table>
+            <br/>
+            <h:commandButton value="Voltar" style="width: 48%" action="voltaParaListagem" />
+            <h:commandButton value="Editar" style="width: 48%" action="vaiParaEditar"/>                             
+
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Alteração de Filme/Categoria</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>ALTERAÇÃO DE FILME/CATEGORIA</h1>
+            
+            <table>
+                <tbody>
+                    <tr>
+                        <td> <h:outputLabel value="FILME:"/> </td>
+                        <td>   
+                            <h:selectOneMenu id="cboFilme"
+                                             value="#{filmecategoriaController.filmeCategoria.filme.filme_id}"
+                                             style="width: 250px">
+                                
+                                <f:selectItem itemLabel="Selecione um filme..."
+                                              itemValue="-1"/>
+                                
+                                <f:selectItems value="#{filmeController.filmes}"
+                                               var="filme"
+                                               itemLabel="#{filme.titulo}"
+                                               itemValue="#{filme.filme_id}"/>
+                            
+                            </h:selectOneMenu>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <h:outputLabel value="CATEGORIA:"/> </td>
+                        <td>  
+                            <h:selectOneMenu id="cboProduto"
+                                             value="#{filmecategoriaController.filmeCategoria.categoria.categoria_id}"
+                                             style="width: 250px">
+                                
+                                <f:selectItem itemLabel="Selecione uma categoria..."
+                                              itemValue="-1"/>
+                                
+                                <f:selectItems value="#{categoriaController.categorias}"
+                                               var="categoria"
+                                               itemLabel="#{categoria.nome}"
+                                               itemValue="#{categoria.categoria_id}"/>
+                            
+                            </h:selectOneMenu>
+                        
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+            <h:commandButton value="Voltar" style="width: 48%" action="voltaParaListagem" />
+            <h:commandButton value="Salvar" style="width: 48%" action="#{filmecategoriaController.finalizaInclusao()}" />
+            
+        </h:form>
+    </h:body>
+</html>
+

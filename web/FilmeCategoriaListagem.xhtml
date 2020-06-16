@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="MeuCss.css" />
+        <title>Listagem de Filme/Categoria</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>LISTAGEM DE FILMES/CATEGORIAS EXISTENTES</h1>
+            <h:commandButton value="VOLTAR" style="width: 95%" action="voltaParaIndex"/>
+            <h:commandButton value="CRIAR NOVO FILME/CATEGORIA" style="width: 95%" action="#{filmecategoriaController.prepararInclusao()}" />
+            <br/>
+
+            <h:dataTable style="width: 95%"
+                         var="film"
+                         value="#{filmecategoriaController.filmeCategorias}"
+                         border="1"
+                         rowClasses="azul,verde"
+                         headerClass="cabecalho">
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="CÓDIGO DO FILME:"/>
+                    </f:facet>
+
+                    <h:outputLabel value="#{film.filme_id}"/>                    
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="CÓDIGO DA CATEGORIA:"/>
+                    </f:facet>
+
+                    <h:outputLabel value="#{film.categoria_id}"/>                    
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="FILME:"/>
+                    </f:facet>
+
+                    <h:outputLabel value="#{film.filme.titulo}"/>                    
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="CATEGORIA:"/>
+                    </f:facet>
+
+                    <h:outputLabel value="#{film.categoria.nome}"/>                    
+                </h:column>
+
+
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="AÇÃO"/>
+                    </f:facet>
+
+                    <h:commandLink value="Detalhe" action="vaiParaDetalhe">
+                        <f:setPropertyActionListener target="#{filmecategoriaController.filmeCategoria}" value="#{film}" />
+                    </h:commandLink>
+
+                    <h:outputLabel value="|"/>
+                    <h:commandLink value="Editar" action="vaiParaEditar">
+                        <f:setPropertyActionListener target="#{filmecategoriaController.filmeCategoria}" value="#{film}" />
+                    </h:commandLink>
+
+
+                    <h:outputLabel value="|"/>
+
+                    <h:commandLink value="Deletar" action="#{filmecategoriaController.finalizaDelecao()}">
+                        <f:setPropertyActionListener target="#{filmecategoriaController.filmeCategoria}" value="#{film}"/>
+                    </h:commandLink>
+
+                </h:column>
+
+            </h:dataTable>
+
+        </h:form>
+    </h:body>
+</html>
+

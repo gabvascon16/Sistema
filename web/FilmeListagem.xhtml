@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="MeuCss.css" />
+        <title>Listagem dos Filmes</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>LISTAGEM DOS FILMES EXISTENTES</h1>
+            <h:commandButton value="VOLTAR" style="width: 95%" action="voltaParaIndex"/>
+            <br/>
+            
+            <h:dataTable style="width: 95%"
+                         var="umFilme"
+                         value="#{filmeController.filmes}"
+                         border="1"
+                         rowClasses="amarelo,azul"
+                         headerClass="cabecalho">
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="CÓDIGO:"/>
+                    </f:facet>
+                    
+                    <h:outputLabel value="#{umFilme.filme_id}"/>                    
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="TITULO:"/>
+                    </f:facet>
+                    
+                    <h:outputLabel value="#{umFilme.titulo}"/>                    
+                </h:column>
+                
+                      
+                            
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="PRÇ. ORIGINAL:"/>
+                    </f:facet>
+                    
+                    <h:outputLabel value="#{umFilme.preco_da_locacao}">
+                        <f:convertNumber pattern="#,###,##0.00"/>
+                    </h:outputLabel>
+                        
+                </h:column>                
+            </h:dataTable>
+            
+        </h:form>
+    </h:body>
+</html>
+

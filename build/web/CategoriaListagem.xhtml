@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="MeuCss.css" />
+        <title>Listagem das Categorias</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>LISTAGEM DAS CATEGORIAS EXISTENTES</h1>
+            <h:commandButton value="VOLTAR" style="width: 95%" action="voltaParaIndex"/>
+            <h:commandButton value="CRIAR UMA NOVA CATEGORIA" style="width: 95%" action="#{categoriaController.prepararInclusao()}" />
+            <br/>
+            
+            <h:dataTable style="width: 95%"
+                         var="Ctg"
+                         value="#{categoriaController.categorias}"
+                         border="1"
+                         rowClasses="amarelo,azul"
+                         headerClass="cabecalho">
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="CÓDIGO:"/>
+                    </f:facet>
+                    
+                    <h:outputLabel value="#{Ctg.categoria_id}"/>                    
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="NOME:"/>
+                    </f:facet>
+                    
+                    <h:outputLabel value="#{Ctg.nome}"/>                    
+                </h:column>
+                
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="ULTIMA ATUALIZACAO:"/>
+                    </f:facet>
+                    
+                    <h:outputLabel value="#{Ctg.ultima_atualizacao}">
+                        <f:convertDateTime pattern="dd/MM/yyy" />
+                    </h:outputLabel>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputLabel value="AÇÃO:"/>
+                    </f:facet>
+                    
+                    <h:commandLink value="Detalhe" action="vaiParaDetalhe">
+                        <f:setPropertyActionListener target="#{categoriaController.categoria}" value="#{Ctg}" />
+                    </h:commandLink>
+                    
+                    <h:outputLabel value="|"/>
+                    <h:commandLink value="Editar" action="vaiParaEditar">
+                        <f:setPropertyActionListener target="#{categoriaController.categoria}" value="#{Ctg}" />
+                    </h:commandLink>
+                    
+                    
+                    <h:outputLabel value="|"/>
+                    
+                    <h:commandLink value="Deletar" action="#{categoriaController.finalizaDelecao()}">
+                        <f:setPropertyActionListener target="#{categoriaController.categoria}" value="#{Ctg}"/>
+                    </h:commandLink>
+                                      
+                </h:column>
+                
+            </h:dataTable>
+            
+        </h:form>
+    </h:body>
+</html>
+

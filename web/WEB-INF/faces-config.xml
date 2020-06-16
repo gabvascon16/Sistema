@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>vaiParaListagem</from-outcome>
+            <to-view-id>/CategoriaListagem.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaListagemFilme</from-outcome>
+            <to-view-id>/FilmeListagem.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaListagemFilmeCategoria</from-outcome>
+            <to-view-id>/FilmeCategoriaListagem.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+  
+        <navigation-rule>
+        <from-view-id>/FilmeCategoriaListagem.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaIndex</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaIncluir</from-outcome>
+            <to-view-id>/FilmeCategoriaIncluir.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaEditar</from-outcome>
+            <to-view-id>/FilmeCategoriaEditar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaDetalhe</from-outcome>
+            <to-view-id>/FilmeCategoriaDetalhe.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>refresh</from-outcome>
+            <to-view-id>/FilmeCategoriaListagem.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>filmecategoriaController</managed-bean-name>
+        <managed-bean-class>frb.edu.br.controladores.FilmeCategoriaController</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/FilmeCategoriaIncluir.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaListagem</from-outcome>
+            <to-view-id>/FilmeCategoriaListagem.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/FilmeCategoriaEditar.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaListagem</from-outcome>
+            <to-view-id>/FilmeCategoriaListagem.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/FilmeCategoriaDetalhe.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaListagem</from-outcome>
+            <to-view-id>/FilmeCategoriaListagem.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaEditar</from-outcome>
+            <to-view-id>/FilmeCategoriaEditar.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <navigation-rule>
+        <from-view-id>/CategoriaListagem.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaIndex</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaIncluir</from-outcome>
+            <to-view-id>/CategoriaIncluir.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaEditar</from-outcome>
+            <to-view-id>/CategoriaEditar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaDetalhe</from-outcome>
+            <to-view-id>/CategoriaDetalhe.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>refresh</from-outcome>
+            <to-view-id>/CategoriaListagem.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>categoriaController</managed-bean-name>
+        <managed-bean-class>frb.edu.br.controladores.CategoriaController</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/CategoriaIncluir.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaListagem</from-outcome>
+            <to-view-id>/CategoriaListagem.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/CategoriaEditar.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaListagem</from-outcome>
+            <to-view-id>/CategoriaListagem.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/CategoriaDetalhe.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaListagem</from-outcome>
+            <to-view-id>/CategoriaListagem.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>vaiParaEditar</from-outcome>
+            <to-view-id>/CategoriaEditar.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <navigation-rule>
+        <from-view-id>/FilmeListagem.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>voltaParaIndex</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>refresh</from-outcome>
+            <to-view-id>/FilmeListagem.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>filmeController</managed-bean-name>
+        <managed-bean-class>frb.edu.br.controladores.FilmeController</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    
+
+</faces-config>
